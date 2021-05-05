@@ -41,7 +41,7 @@ equation
 <p>Here, in this function, the right hand side of the previous equation for the solution of KP07 scheme is calculated and returns as a output.</p>
 <p>The central upwind numerical fluxes at the cell interfaces are given by:</p>
 <p align=\"center\"><img src=\"modelica://OpenHPL/Resources/Images/equations/KP_fluxes.svg\"/></p>
-<p>For calculating the numerical fluxes <i>H<sub>i&plusmn;&frac12;</sub>(t)</i> and the values of U<sub>i&plusmn;&frac12;</sub> are needed. These can be calculated as the end points of a piecewise linearly reconstructed function: </p>
+<p>For calculating the numerical fluxes <em>H<sub>i&plusmn;&frac12;</sub>(t)</em> and the values of U<sub>i&plusmn;&frac12;</sub> are needed. These can be calculated as the end points of a piecewise linearly reconstructed function: </p>
 <p align=\"center\"><img src=\"modelica://OpenHPL/Resources/Images/equations/KP_piecewise.svg\"/></p>
 <p>The slope <em>s<sub>i</sub></em> of the reconstructed function in each cell is computed using a limiter function to obtain a non-oscillatory nature of the reconstruction. The KP07 scheme utilizes the generalized minmod limiter as: </p>
 <p align=\"center\"><img src=\"modelica://OpenHPL/Resources/Images/equations/KP_slope.svg\"/></p>
@@ -59,18 +59,18 @@ equation
 <li>matrix: <code>F(U<sup>&plusmn;</sup><sub>i&plusmn;&frac12;</sub>)[2N,4]</code></li>
 <li>vector: <code>S(U)[2N,1]</code> </li>
 <li>matrix of eigenvalues: <code>&lambda;<sub>1,2</sub>(U<sup>&plusmn;</sup><sub>i&plusmn;&frac12;</sub>)[N,4];</code></li>
-<li>vector B which is additional for defing ghost cells and can be used for, e.g., an open channel 
+<li>vector B which is additional for defing ghost cells and can be used for, e.g., an open channel
   (state <code>z=h+B</code>). In this case the input state vector <code>U</code> should include <code>h</code>,
   but the piecewise linear reconstruction of states will be done with <code>z</code></li>
 <li>information about boundary conditions, as a matrix [2,2] of booleans true/false - depend on, which variable should be used</li>
 <li>matrix with values for boundary conditions [2,2]</li>
 </ul>
-<p>In order to calculate matrix <code>F</code> and eigenvalues, it is possible to take out of the 
-function the piecewise linear reconstruction of states matrix <code>U<sup>&plusmn;</sup><sub>i&plusmn;&frac12;</code>.
+<p>In order to calculate matrix <code>F</code> and eigenvalues, it is possible to take out of the
+function the piecewise linear reconstruction of states matrix <code>U<sup>&plusmn;</sup><sub>i&plusmn;&frac12;</sub></code>.
  This matrix consists of following vectors <code>U<sup>&plusmn;</sup><sub>i&plusmn;&frac12;</sub>
   = [U<sup>-</sup><sub>i+&frac12;</sub> U<sup>+</sup><sub>i+&frac12;</sub>
      U<sup>-</sup><sub>i-&frac12;</sub> U<sup>+</sup><sub>i-&frac12;</sub>]</code>.</p>
-<p>Examples of using this scheme are presented in 
+<p>Examples of using this scheme are presented in
 <a href=\"modelica://OpenHPL.Functions.KP07.TestKPpde\">KP07.TestKPpde</a>.</p>
 </html>"));
 end KPmethod;
